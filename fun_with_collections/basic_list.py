@@ -59,3 +59,32 @@ if __name__ == '__main__':
     print(make_list(2))
     #Calls function to add three numbers to list and prints results:
     print(make_list(3))
+
+
+"""
+Testing:
+Please enter a whole number: 1
+[1]
+Please enter a whole number: k
+Not a whole number. Please try again.
+Please enter a whole number: 5
+Please enter a whole number: k
+Not a whole number. Please try again.
+Please enter a whole number: 5
+[5, 5]
+Please enter a whole number: p
+Not a whole number. Please try again.
+Please enter a whole number: three
+Not a whole number. Please try again.
+Please enter a whole number: 5
+Please enter a whole number: -9
+Please enter a whole number: forty
+Not a whole number. Please try again.
+Please enter a whole number: .9
+Not a whole number. Please try again.
+Please enter a whole number: 0
+[5, -9, 0]
+
+Process finished with exit code 0
+
+"""
