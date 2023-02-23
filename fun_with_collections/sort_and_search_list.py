@@ -3,31 +3,9 @@ Program: sort_and_search_list.py
 Author: Lily Ellison
 Last date modified: 02/22/2023
 
-The purpose of this program is to make a list, sort that list, and then search that list for a value.
+The purpose of this program is to make a list, sort that list, and then search that list for a value using various
+functions.
 """
-
-'''
-You can make a new file sort_and_search_list.py. For this assignment, you can hard-code a list you pass to the 
-sort_list() and search_list() in your main. For extra credit, you and use the previous assignment get_list()
-Write sort_list() to sort the list
-
-    What is the return statement?
-        Write a comment explaining why you included return OR
-        Write a comment explaining why your code has no return statement.
-
-Write search_list() 
-
-    What is the return statement?
-        Write a comment explaining why you included return OR
-        Write a comment explaining why your code has no return statement.
-
-Write main
-
-    call sort_list()
-    call search_list()
-
-
-'''
 
 
 def make_list(num):
@@ -73,6 +51,64 @@ def get_input():
     return user_answer
 
 
+def sort_list(submitted_list):
+    """
+    Sorts an unsorted list
+    :param submitted_list: a list of integers, validated by another function
+    :return: Returns sorted list. Not needed for this program directly, but testing would not work without it.
+    """
+    submitted_list.sort()
+    return submitted_list
+
+
+def search_list(submitted_list):
+    """
+    Accepts a list, prompts user for a value to search for in list, validates input, searches list, returns search
+    results
+    :param submitted_list: list of integers searched
+    :return: results: tells user if the number was not found or the index of the number in the list if it was found
+    """
+    #Primes variable used to run while loop:
+    valid_input = False
+    #Established while loop:
+    while not valid_input:
+        num_to_find = input("What number would you like to search for? ")
+        try:
+            # Tries to cast input as integer:
+            find_number = int(num_to_find)
+        # Exception thrown if unable to cast as integer:
+        except:
+            # Gives reason for repeat:
+            print("Not a whole number. Please try again.")
+            continue
+        # As long as input is integer:
+        else:
+            #Exits while loop:
+            valid_input = True
+    try:
+        #Searches for the validated input:
+        num_index = submitted_list.index(find_number)
+    except:
+        #Declares value not found:
+        result = num_to_find + " not found."
+    else:
+        #States where the number is in the list using its index value
+        result = num_to_find + " found at index " + str(num_index)
+    finally:
+        #Result returned to calling location
+        return result
+
+
 if __name__ == '__main__':
+    #Create a list using make_list and get_input:
     first_list = make_list(5)
+    #Display results as a list:
     print("First list, as entered: " + str(first_list))
+    #Sort the list:
+    sort_list(first_list)
+    #Display sorted results:
+    print("First list, in numerical order: " + str(first_list))
+    #Start the search function:
+    search_results = search_list(first_list)
+    #Display the search results:
+    print(search_results)
